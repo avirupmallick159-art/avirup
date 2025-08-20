@@ -1,0 +1,185 @@
+/* Google fonts loaded in each HTML head */
+/* Basic reset */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:'Poppins',sans-serif;background:#fff;color:#222}
+
+/* common container */
+.container{max-width:1000px;margin:0 auto;padding:20px}
+
+/* Cute theme colors */
+:root{
+  --bg:#fff0f6;
+  --primary:#ff6fa3;   /* pink */
+  --accent:#ffd166;    /* gold-like */
+  --muted:#f7e7ef;
+  --card:#fff;
+  --glass: rgba(255,255,255,0.6);
+}
+
+/* Page background */
+body{
+  background: linear-gradient(180deg,var(--bg), #fff);
+  min-height:100vh;
+}
+
+/* Header nav */
+.nav{
+  display:flex;gap:10px;align-items:center;justify-content:center;padding:14px 10px;
+  position:sticky;top:0;background:linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0.3));
+  z-index:40;backdrop-filter: blur(4px);
+}
+.nav a{background:var(--card);padding:8px 12px;border-radius:12px;text-decoration:none;color:#333;font-weight:600;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+.nav a.btn-special{background:linear-gradient(90deg,var(--primary), #ff9ccf);color:white;box-shadow:0 8px 24px rgba(255,111,163,0.18)}
+
+/* Countdown styles */
+.countdown-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;padding:40px 10px}
+.hero-title{font-family:'Pacifico', cursive;font-size:28px;color:var(--primary);text-align:center}
+.timer{display:flex;gap:12px;align-items:center;justify-content:center}
+.time-seg{background:linear-gradient(180deg,#fff, var(--muted));padding:14px 18px;border-radius:10px;min-width:80px;text-align:center;box-shadow:0 6px 16px rgba(0,0,0,0.06)}
+.time-seg .num{font-size:22px;font-weight:800;color:#333}
+.time-seg .lbl{font-size:12px;color:#777;margin-top:6px}
+
+/* password */
+.pw-wrap{margin-top:10px;display:flex;gap:8px;align-items:center}
+.pw-wrap input{padding:12px 14px;border-radius:12px;border:2px solid #ffdce6;background:linear-gradient(90deg,#fff0f6,#fff7f0);outline:none;font-weight:600;color:#333;transition:all 0.3s}
+.pw-wrap input:focus{border-color:var(--primary);box-shadow:0 0 12px rgba(255,111,163,0.3)}
+.pw-wrap button{padding:12px 16px;border-radius:12px;border:none;background:var(--primary);color:white;font-weight:700;cursor:pointer;transition:all 0.3s}
+.pw-wrap button:hover{transform:scale(1.05);box-shadow:0 6px 18px rgba(255,111,163,0.25)}
+
+/* hearts & sticker animation container */
+.decor{
+  position:fixed;left:0;right:0;top:0;bottom:0;pointer-events:none;z-index:1;
+}
+.heart{
+  position:absolute;width:28px;height:28px;background:transparent;
+  animation: floatUp 6s linear infinite;
+  opacity:0.95;
+}
+.heart img{width:100%;height:100%;display:block}
+@keyframes floatUp{
+  0%{transform:translateY(20vh) scale(0.6);opacity:0}
+  10%{opacity:1}
+  100%{transform:translateY(-120vh) translateX(var(--tx,0px)) scale(1);opacity:0}
+}
+
+/* last 60s highlight */
+.special-60{border:4px dashed rgba(255,111,163,0.2);padding:12px;border-radius:16px;box-shadow:0 10px 40px rgba(255,111,163,0.08)}
+
+/* Home page big wish */
+.wish-card{background:linear-gradient(180deg, rgba(255,255,255,0.9), #fff);padding:24px;border-radius:18px;box-shadow:0 12px 40px rgba(0,0,0,0.06);text-align:center}
+.wish-card h1{font-family:'Pacifico',cursive;font-size:40px;color:var(--primary);margin-bottom:6px}
+.wish-card p{font-size:16px;color:#555}
+
+/* balloons */
+.balloon{position:absolute; width:80px; height:120px; bottom:-60px; opacity:0.95; animation:rise 8s linear infinite}
+@keyframes rise{0%{transform:translateY(0)}100%{transform:translateY(-140vh)}}
+
+/* cake area */
+.cake-area{display:flex;gap:20px;align-items:center;justify-content:center;padding:30px}
+.cake{position:relative;width:320px;height:240px;border-radius:18px; background:transparent}
+.cake img{width:100%;height:100%;object-fit:contain;display:block}
+.cake .cut-msg{position:absolute;left:50%;top:10%;transform:translateX(-50%);background:var(--glass);padding:6px 10px;border-radius:12px;font-weight:700;color:#333}
+.cake.cut img{transform:translateY(20px) scale(0.98);opacity:0.9;transition:all 800ms cubic-bezier(.2,.9,.4,1)}
+.cake.cut::after{
+  content:"";
+  position:absolute;left:55%;top:38%;width:110px;height:110px;background:url("../images/cake_cut.png") center/cover no-repeat;transform:translate(-40%,-20%) scale(0.95);opacity:1;
+}
+
+/* blessings animate */
+.blessings{margin-top:14px;text-align:center}
+.blessings p{font-weight:600;letter-spacing:0.2px;animation:fadeIn 1.2s ease both}
+.blessings p.visible{opacity:1;transform:none}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* gallery grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}
+.card-img{position:relative;border-radius:14px;overflow:hidden;background:#fff;padding:6px;box-shadow:0 10px 30px rgba(0,0,0,0.05)}
+.card-img img{width:100%;height:180px;object-fit:cover;display:block}
+.date-overlay{position:absolute;left:8px;top:8px;background:linear-gradient(90deg, rgba(0,0,0,0.6), rgba(0,0,0,0.35));color:#fff;padding:6px 8px;border-radius:8px;font-weight:700}
+
+/* modal */
+.modal{position:fixed;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;z-index:90;visibility:hidden;opacity:0;transition:all .25s}
+.modal.open{visibility:visible;opacity:1}
+.modal .inner{background:white;border-radius:12px;padding:14px;max-width:920px;width:95%}
+.modal img{max-width:100%;border-radius:8px}
+.modal .meta{margin-top:10px}
+
+/* audio list */
+.audio-list{display:flex;flex-direction:column;gap:10px;padding:12px}
+.audio-item{background:linear-gradient(180deg,#fff,#fff7f0);padding:10px;border-radius:10px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+
+/* responsive */
+@media(max-width:700px){
+  .hero-title{font-size:22px}
+  .wish-card h1{font-size:28px}
+  .cake{width:240px;height:200px}
+}
+/* Animated Cut Cake Button */
+#cut-btn {
+  background: linear-gradient(45deg, #ff4081, #ff9800, #ffeb3b, #4caf50, #2196f3, #9c27b0) !important;
+  background-size: 400% 400% !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  border: none !important;
+  border-radius: 14px !important;
+  cursor: pointer !important;
+  padding: 14px 22px !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25) !important;
+  transition: transform 0.25s ease !important;
+  animation: gradientFlow 6s infinite alternate, pulse 2s infinite !important;
+}
+
+/* Hover effect */
+#cut-btn:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.35) !important;
+}
+
+/* Gradient animation */
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+/* Romantic Animated Cut Cake Button */
+#cut-btn {
+  background: linear-gradient(135deg, #ff6f91, #ff4e50, #ff758c, #ff9a9e, #fad0c4) !important;
+  background-size: 300% 300% !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  border: none !important;
+  border-radius: 50px !important; /* rounded, pill style */
+  cursor: pointer !important;
+  padding: 14px 26px !important;
+  letter-spacing: 1px;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.6), 0 0 40px rgba(255, 64, 129, 0.4) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  animation: romanticGradient 6s infinite alternate, romanticPulse 2.5s infinite ease-in-out !important;
+}
+
+/* Hover effect */
+#cut-btn:hover {
+  transform: scale(1.12) !important;
+  box-shadow: 0 0 30px rgba(255, 105, 180, 0.8), 0 0 50px rgba(255, 64, 129, 0.6) !important;
+}
+
+/* Romantic Gradient Flow */
+@keyframes romanticGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Soft Pulse */
+@keyframes romanticPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
